@@ -4,7 +4,7 @@ $(function(){
 	removecount = 0;
 	doneCurrent = true;
 
-	var TodoItem = Backbone.Model.extend({
+	TodoItem = Backbone.Model.extend({
 		defaults:{
 			description:'Empty todo',
 			status:'incomplete'
@@ -23,7 +23,7 @@ $(function(){
 		},
 	});
 
-	var TodoView = Backbone.View.extend({
+	TodoView = Backbone.View.extend({
 		className: 'todo',
 		id: 'todo-list',
 		template: _.template('<h2 class="'+
@@ -54,13 +54,13 @@ $(function(){
 	bonusItem = new TodoItem({description:'Defeat Alexander\'s Army',id:5});
 	bonusView = new TodoView({ model: bonusItem});
 
-	var TodoList = Backbone.Collection.extend({
+	TodoList = Backbone.Collection.extend({
 		model:TodoItem,
 		url: '/todos/',
 	});
 
 	todoList = new TodoList();
-	var TodoListView = Backbone.View.extend({
+	TodoListView = Backbone.View.extend({
 		initialize: function () {
 			this.collection.on('add', this.addOne, this);
 			this.collection.on('reset', this.addAll, this);
